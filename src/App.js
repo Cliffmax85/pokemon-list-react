@@ -1,6 +1,6 @@
-import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import Pokemon from './Pokemon';
+import PokemonDetail from './PokemonDetail';
+import PokemonPage from './PokemonPage';
 
 function App() {
   return (
@@ -8,7 +8,9 @@ function App() {
       <div className="App">Hello
         <Switch>
           <Route exact path='/'>
-            <Pokemon />
+            <PokemonPage /> </Route>
+          <Route exact path='/pokemon/:id'>
+            <PokemonDetail />
           </Route>
         </Switch>
       </div>
