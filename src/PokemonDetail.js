@@ -3,13 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import { getSinglePokemon } from './services/fetch-utils';
 
 export default function PokemonDetail() {
-  const [currentPokemon, setCurrentPokemon] = useState({});
+  const [pokemon, setPokemon] = useState({});
   const params = useParams();
 
   useEffect(() => {
     async function onLoad() {
       const data = await getSinglePokemon(params.id);
-      setCurrentPokemon(data);
+      setPokemon(data);
     }
     onLoad();
   }, [params.id]);
@@ -20,7 +20,8 @@ export default function PokemonDetail() {
       <Link to='/'>Home</Link>
       <div className='pokemon-detail'>
         <div className='pokemon-data'>
-          <p>{currentPokemon.pokemon}</p>
+          <p>{pokemon.pokemon}</p>
+          <img src={pokemon.url_image} />
         </div>
       </div>
     </>

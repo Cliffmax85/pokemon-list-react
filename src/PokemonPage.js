@@ -16,7 +16,7 @@ function App() {
       setCurrentPokemon(pokes);
     }
     fetch();
-  });
+  }, [page]);
   return (
 
     <><div>PokemonPage
